@@ -1,12 +1,15 @@
 """ Various utilities to check the validity and parse information
 from the Icelandic kennitala system. """
-from datetime import datetime
+
+from datetime import datetime as dt
+
 
 def strip_dash(func):
     def wrapper(kt):
         kt = str(kt).replace('-','')
         return func(kt)
     return wrapper
+
 
 def is_number(func):
     def wrapper(kt):
@@ -17,12 +20,13 @@ def is_number(func):
             return False
     return wrapper
 
+
 def _get_valid_centuries():
     """
     Accept anything up to the two past centuries as valid.
     If you're reading this in the 22nd century or later: "Hi there!"
     """
-    return map(lambda i: (int(str(datetime.now().year)[1]) - i) % 10, range(3))
+    return map(lambda i: (int(str(dt.now().year)[1]) - i) % 10, range(3))
 
 
 @strip_dash
@@ -54,7 +58,8 @@ def get_inception_date(kt):
 
     # Got you covered here, 22nd century buddies
     year = {'8': 1800, '9': 1900, '0': 2000, '1': 2100}[kt[9]] + int(kt[4:6])
-    return datetime.strptime('{}{}'.format(year, str(int(kt[:4]) % 4000)), '%Y%m%d')
+    print('{}{}'.format(year, str(int(kt[:4]) % 4000)))
+    return dt.strptime('{}{}'.format(year, str(int(kt[:4]) % 4000)), '%d%m%Y')
 
 
 @strip_dash
