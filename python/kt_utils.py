@@ -78,8 +78,8 @@ def calculate_checksum(kt):
     return (11 - modulus) % 11
 
 
-@strip_dash
 def get_entity_type(kt):
+    kt = str(kt)
     if not is_valid(kt) or int(kt[0]) > 7:
         raise InvalidKtFormat('Illegal kennitala')
     return ('individual', 'company')[int(kt[0]) // 4]
