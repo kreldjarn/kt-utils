@@ -23,7 +23,7 @@ def is_number(func):
 
 def _get_valid_centuries():
     """
-    Accept anything up to the two past centuries as valid.
+    Accept anything going back to the two past centuries as valid.
     If you're reading this in the 22nd century or later: "Hi there!"
     """
     return map(lambda i: (int(str(dt.now().year)[1]) - i) % 10, range(3))
