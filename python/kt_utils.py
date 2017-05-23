@@ -59,7 +59,7 @@ def get_inception_date(kt):
     # Got you covered here, 22nd century buddies
     year = {'8': 1800, '9': 1900, '0': 2000, '1': 2100}[kt[9]] + int(kt[4:6])
     print('{}{}'.format(year, str(int(kt[:4]) % 4000)))
-    return dt.strptime('{}{}'.format(year, str(int(kt[:4]) % 4000)), '%d%m%Y')
+    return dt.strptime('{}{}'.format(str(int(kt[:4]) % 4000), year), '%d%m%Y')
 
 
 @strip_dash
