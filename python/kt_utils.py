@@ -22,20 +22,16 @@ def is_number(func):
 
 
 def _get_valid_centuries():
-    """
-    Accept anything going back to the two past centuries as valid.
-    If you're reading this in the 22nd century or later: "Hi there!"
-    """
+    """ Accept anything going back to the two past centuries as valid.
+    If you're reading this in the 22nd century or later: "Hi there!" """
     return map(lambda i: (int(str(dt.now().year)[1]) - i) % 10, range(3))
 
 
 @strip_dash
 @is_number
 def is_valid(kt):
-    """
-    Discerns whether a kennitala is well-formed or not.
-    Does not check whether it belongs to an entity.
-    """
+    """ Discerns whether a kennitala is well-formed or not.
+    Does not check whether it belongs to an entity. """
     if len(kt) != 10:
         return False
 
@@ -50,9 +46,7 @@ def is_valid(kt):
 
 
 def get_inception_date(kt):
-    """
-    Returns birth date for humans and foundation date for LLCs.
-    """
+    """ Returns birth date for humans and foundation date for LLCs. """
     if not is_valid(kt):
         raise InvalidKtFormat('Illegal kennitala')
 
