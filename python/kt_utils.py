@@ -63,12 +63,12 @@ def calculate_checksum(kt):
 
     kt = kt[:8]
     if len(kt) < 8:
-        raise InvalidKtFormat('Kennitala must contain exactly 10 digits')
+        raise InvalidKtFormat('Checksum requires 8 digits to calculate.')
 
     try:
         digits = map(int, kt)
     except ValueError as e:
-        raise InvalidKtFormat('Kennitala must contain only digits')
+        raise InvalidKtFormat('Kennitala must contain only digits.')
     acc = sum([d * w for d, w in zip(digits, weights)])
     modulus = acc % 11
     checksum = 11 - modulus
