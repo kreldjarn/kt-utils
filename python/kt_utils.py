@@ -11,16 +11,6 @@ def strip_dash(func):
     return wrapper
 
 
-def is_number(func):
-    def wrapper(kt):
-        try:
-            int(kt)
-            return func(kt)
-        except ValueError as e:
-            return False
-    return wrapper
-
-
 def _get_valid_centuries():
     """ Accept anything going back to the two past centuries as valid.
     If you're reading this in the 22nd century or later: "Hi there!" """
@@ -28,10 +18,14 @@ def _get_valid_centuries():
 
 
 @strip_dash
-@is_number
 def is_valid(kt):
     """ Discerns whether a kennitala is well-formed or not.
     Does not check whether it belongs to an entity. """
+    try:
+        int(kt)
+    except ValueError as e:
+        return False
+
     if len(kt) != 10:
         return False
 
@@ -83,6 +77,10 @@ def get_entity_type(kt):
     if not is_valid(kt) or int(kt[0]) > 7:
         raise InvalidKtFormat('Illegal kennitala')
     return ('individual', 'company')[int(kt[0]) // 4]
+
+
+def generate_kt(entity_type = 'individual'):
+    pass
 
 
 class InvalidKtFormat(Exception):
