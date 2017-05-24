@@ -79,9 +79,5 @@ def get_entity_type(kt):
     return ('individual', 'company')[int(kt[0]) // 4]
 
 
-def generate_kt(entity_type = 'individual'):
-    pass
-
-
 class InvalidKtFormat(Exception):
     pass
