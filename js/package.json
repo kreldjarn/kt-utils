@@ -1,0 +1,22 @@
+{
+  "name": "kt_utils",
+  "version": "1.0.0",
+  "description": "Utility functions to verify the validity of and parse information from the Icelandic kennitala system.",
+  "main": "kt_utils.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kreldjarn/kt-utils.git"
+  },
+  "keywords": [
+    "kennitala"
+  ],
+  "author": "Kristján Eldjárn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kreldjarn/kt-utils/issues"
+  },
+  "homepage": "https://github.com/kreldjarn/kt-utils#readme"
+}
