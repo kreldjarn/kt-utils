@@ -27,9 +27,7 @@ var kt_utils = (function() {
   public.is_valid = function(kt) {
     kt = _strip_dash(kt);
 
-    if (!/^\d+$/.test(kt)) return false;
-
-    if (kt.length != 10) return false;
+    if (!/^\d{10}$/.test(kt)) return false;
 
     if (!_in_array(_get_valid_centuries(), kt.substr(-1))) return false;
 
