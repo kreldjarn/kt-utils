@@ -1,4 +1,4 @@
-var kt_utils = (function() {
+exports = (function() {
   var public = {};
 
   function _strip_dash(kt) {
@@ -51,6 +51,12 @@ var kt_utils = (function() {
     if (checksum == 10) throw 'Checksum invalid, kennitala is illegal';
 
     return (11 - modulus) % 11;
+  }
+
+  public.get_inception_date(kt) {
+    if (!public.is_valid(kt)) throw 'Illegal kennitala.';
+
+
   }
 
   return public;
