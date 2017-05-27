@@ -53,13 +53,13 @@ module.exports = (function() {
     return (11 - modulus) % 11;
   }
 
-  public.get_inception_date(kt) {
+  public.get_inception_date = function(kt) {
     if (!public.is_valid(kt)) throw 'Illegal kennitala.';
     var year = {8: 1800, 9: 1900, 0: 2000, 1: 2100}[kt.substr(9, 1)] + kt.substr(4, 2);
     return new Date(year, -1 + kt.substr(2, 2), kt.substr(0, 2));
   }
 
-  public.get_entity_type(kt) {
+  public.get_entity_type = function(kt) {
     if (!public.is_valid(kt)) {
       throw 'Illegal kennitala.';
     return ['individual', 'company'][Math.floor(kt.substr(0,1) / 4)];
