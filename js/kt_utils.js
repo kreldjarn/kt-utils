@@ -60,8 +60,7 @@ module.exports = (function() {
   }
 
   public.get_entity_type = function(kt) {
-    if (!public.is_valid(kt)) {
-      throw 'Illegal kennitala.';
+    if (!public.is_valid(kt)) throw 'Illegal kennitala.';
     return ['individual', 'company'][Math.floor(kt.substr(0,1) / 4)];
   }
 
