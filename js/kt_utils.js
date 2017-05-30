@@ -15,8 +15,8 @@ module.exports = (function() {
 
   function _in_array(array, value) {
     var in_array = false;
-    array.map(function(elem) {
-      if (elem == value) {
+    array.map(function(element) {
+      if (element == value) {
         in_array = true;
         break;
       }
